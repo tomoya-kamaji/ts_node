@@ -1,12 +1,13 @@
-import express from "express";
-import { UserController } from "./user/controller";
+import express from 'express'
+import { UserController } from './user/controller'
 
 export function initRoute() {
-  const router = express.Router();
+  const router = express.Router()
 
-  const usersRoute = "/users";
+  const usersRoute = '/users'
   {
-    router.get(`${usersRoute}`, UserController.Index);
+    router.get(`${usersRoute}`, UserController.Index)
+    router.post(`${usersRoute}`, UserController.Create)
   }
-  return router;
+  return router
 }

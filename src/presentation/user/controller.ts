@@ -1,6 +1,8 @@
 import { Request, Response } from 'express'
 import { GetUserResponse, UserResponseModel } from './response'
 import { FetchUserUsecase } from '../../usecase/fetch_user_usecase'
+import { CreateUserUsecase } from '../../usecase/create_user_usecase'
+import { UserRepository } from '../../infrastructure/repository/userRepository'
 
 export namespace UserController {
   export const Index = (_: Request, res: Response<GetUserResponse>) => {
@@ -10,5 +12,9 @@ export namespace UserController {
       { id: 3, name: 'User3', email: 'user3@test.local' }
     ]
     res.json(users)
+  }
+  export const Create = (_: Request, res: Response<GetUserResponse>) => {
+    const usecase = new CreateUserUsecase(new UserRepository())
+    usecase
   }
 }
