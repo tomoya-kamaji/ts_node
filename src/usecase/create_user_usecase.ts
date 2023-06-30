@@ -7,8 +7,8 @@ export class CreateUserUsecase {
     this.userRepository = userRepository
   }
 
-  async run() {
-    const user = User.create('Alice', 20)
+  async run(name: string, age: number | undefined) {
+    const user = User.create(name, age)
     return this.userRepository.save(user)
   }
 }
