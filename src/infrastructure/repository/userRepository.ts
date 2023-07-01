@@ -22,10 +22,7 @@ export class UserRepository implements IUserRepository {
     const newUser = await prisma.user.create({
       data: {
         name: 'Alice',
-        email: 'alice@prisma.io',
-        posts: {
-          create: { title: 'Hello World', content: 'Welcome to Prisma' }
-        }
+        email: 'alice@prisa.io'
       }
     })
 

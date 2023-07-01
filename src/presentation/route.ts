@@ -1,13 +1,10 @@
 import express from 'express'
 import { UserController } from './user/controller'
 
-export function initRoute() {
-  const router = express.Router()
-
+export function initRoute(app: express.Express) {
   const usersRoute = '/users'
   {
-    router.get(`${usersRoute}`, UserController.Index)
-    router.post(`${usersRoute}`, UserController.Create)
+    app.get(`${usersRoute}`, UserController.Index)
+    app.post(`${usersRoute}`, UserController.Create)
   }
-  return router
 }

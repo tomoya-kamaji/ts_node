@@ -1,6 +1,7 @@
 export class User {
-  private name: string
-  private age: number | undefined
+  readonly id: number
+  readonly name: string
+  readonly age: number | undefined
 
   constructor(name: string, age: number | undefined) {
     this.name = name

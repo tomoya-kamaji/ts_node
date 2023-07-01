@@ -1,6 +1,12 @@
-import express from "express";
-import { initApiEngine } from "./presentation/api_engine";
+import { initApiEngine } from './presentation/api_engine'
+import { initRoute } from './presentation/route'
 
-function main() {
-  const app = initApiEngine();
+async function main() {
+  const app = initApiEngine()
+  initRoute(app)
 }
+
+main().catch((err) => {
+  console.error(err)
+  process.exit(1)
+})
