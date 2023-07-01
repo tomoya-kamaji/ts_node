@@ -7,7 +7,7 @@ export class FetchUserUsecase {
   }
 
   async run() {
-    const users = await this.userRepository.fetchUser()
+    const users = await this.userRepository.fetch()
     return users
   }
 }

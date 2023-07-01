@@ -1,12 +1,10 @@
-import express from "express";
-import { UserController } from "./user/controller";
+import express from 'express'
+import { UserController } from './user/controller'
 
-export function initRoute() {
-  const router = express.Router();
-
-  const usersRoute = "/users";
+export function initRoute(app: express.Express) {
+  const usersRoute = '/users'
   {
-    router.get(`${usersRoute}`, UserController.Index);
+    app.get(`${usersRoute}`, UserController.Index)
+    app.post(`${usersRoute}`, UserController.Create)
   }
-  return router;
 }
